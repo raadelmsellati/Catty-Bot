@@ -8,9 +8,11 @@ I = '!Journey2023'
 INSTAGRAM_USER_ID = 56160592084  # Replace with the desired Instagram username (e.g., 'bbc')
 WEBHOOK_URL = 'https://discord.com/api/webhooks/1098200267733880896/tQIEm4mHDZ6Q_hNnG7A-ujyRkzbzFq0UmUkqFwqvzMiaahHOierBjeaUJz2iPNS-kwCn'  # Replace with your Discord webhook URL
 
+loader = Instaloader()
+loader.login(GIN, I)
+
 def get_recent_posts(user_id):
-    loader = Instaloader()
-    loader.login(GIN, I)
+    
     profile = Profile.from_id(loader.context, user_id)
     posts = list(profile.get_posts())[:5]  # Get the 5 most recent posts
     return posts
