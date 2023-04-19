@@ -14,7 +14,7 @@ def send_discord_message(image_url):
     data = {
         'embeds': [
             {
-                'title': 'Random Cat Picture',
+                'title': 'Isn\'t that cute?',
                 'image': {'url': image_url},
             }
         ]
@@ -27,7 +27,7 @@ def main():
     while True:
         image_url = get_random_cat_image_url()
         send_discord_message(image_url)
-        time.sleep(3600)  # Wait for 3600 seconds (1 hour) before sending the next picture
+        time.sleep(300)  
 
 if __name__ == '__main__':
     main()
