@@ -5,7 +5,7 @@ from discord_webhook import DiscordWebhook
 GIN = '365Journey'
 I = '!Journey2023'
 
-INSTAGRAM_USERNAME = 'umasiberian'  # Replace with the desired Instagram username (e.g., 'bbc')
+INSTAGRAM_USERNAME = 'r3diant'  # Replace with the desired Instagram username (e.g., 'bbc')
 WEBHOOK_URL = 'https://discord.com/api/webhooks/1098200267733880896/tQIEm4mHDZ6Q_hNnG7A-ujyRkzbzFq0UmUkqFwqvzMiaahHOierBjeaUJz2iPNS-kwCn'  # Replace with your Discord webhook URL
 
 def get_recent_posts(username):
