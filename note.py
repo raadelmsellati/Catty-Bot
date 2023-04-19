@@ -21,9 +21,10 @@ def send_discord_message(image_url, fact):
     data = {
         'embeds': [
             {
-                'title': 'Random Cat Picture and Fact',
+                'title': 'Isn\'t that cute?',
                 'description': fact,
                 'image': {'url': image_url},
+                'color': 0x1da1f2
             }
         ]
     }
