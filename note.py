@@ -1,5 +1,5 @@
 import requests
-import json
+import time
 
 DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1098200267733880896/tQIEm4mHDZ6Q_hNnG7A-ujyRkzbzFq0UmUkqFwqvzMiaahHOierBjeaUJz2iPNS-kwCn'
 
@@ -24,10 +24,10 @@ def send_discord_message(image_url):
         print(f'Error sending Discord message: {response.text}')
 
 def main():
-    image_url = get_random_cat_image_url()
+    while True:
+        image_url = get_random_cat_image_url()
         send_discord_message(image_url)
         time.sleep(3600)  # Wait for 3600 seconds (1 hour) before sending the next picture
-
 
 if __name__ == '__main__':
     main()
