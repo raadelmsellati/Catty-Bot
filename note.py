@@ -64,8 +64,8 @@ def main():
         image_url = get_random_cat_image_url()
         question, answer = get_random_computer_science_trivia()
         fact = get_random_cat_fact()
-        send_discord_message(image_url, fact)
-        send_discord_message_CS(question, answer)
+        'send_discord_message(image_url, fact)'
+        'send_discord_message_CS(question, answer)'
         time.sleep(300)  
 
 if __name__ == '__main__':
