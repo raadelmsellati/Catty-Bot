@@ -10,7 +10,7 @@ WEBHOOK_URL = 'https://discord.com/api/webhooks/1098200267733880896/tQIEm4mHDZ6Q
 
 def get_recent_posts(username):
     loader = Instaloader()
-    loader.context.log_in(GIN, I)
+    loader.login(GIN, I)
     profile = Profile.from_username(loader.context, username)
     posts = list(profile.get_posts())[:5]  # Get the 5 most recent posts
     return posts
