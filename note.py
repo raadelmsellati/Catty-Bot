@@ -1,48 +1,33 @@
-import time
-from instaloader import Instaloader, Profile
-from discord_webhook import DiscordWebhook
+import requests
+import json
 
-GIN = '365Journey'
-I = '!Journey2023'
+DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1098200267733880896/tQIEm4mHDZ6Q_hNnG7A-ujyRkzbzFq0UmUkqFwqvzMiaahHOierBjeaUJz2iPNS-kwCn'
 
-INSTAGRAM_USER_ID = 56160592084  # Replace with the desired Instagram username (e.g., 'bbc')
-WEBHOOK_URL = 'https://discord.com/api/webhooks/1098200267733880896/tQIEm4mHDZ6Q_hNnG7A-ujyRkzbzFq0UmUkqFwqvzMiaahHOierBjeaUJz2iPNS-kwCn'  # Replace with your Discord webhook URL
+def get_random_cat_image_url():
+    url = 'https://api.thecatapi.com/v1/images/search'
+    response = requests.get(url)
+    data = response.json()
+    image_url = data[0]['url']
+    return image_url
 
-loader = Instaloader()
-loader.login(GIN, I)
-
-def get_recent_posts(user_id):
-    
-    profile = Profile.from_id(loader.context, user_id)
-    posts = list(profile.get_posts())[:5]  # Get the 5 most recent posts
-    return posts
-
-def send_to_discord(post):
-    webhook = DiscordWebhook(url=WEBHOOK_URL)
-    embed = {
-        'title': f'New post from {INSTAGRAM_USER_ID}',
-        'description': f'[View post on Instagram]({post.url})',
-        'color': 0x1da1f2,  # Instagram's color in hex
-        'image': {'url': post.url},
+def send_discord_message(image_url):
+    data = {
+        'embeds': [
+            {
+                'title': 'Random Cat Picture',
+                'image': {'url': image_url},
+            }
+        ]
     }
-    webhook.add_embed(embed)
-    webhook.execute()
+    response = requests.post(DISCORD_WEBHOOK_URL, json=data)
+    if response.status_code != 204:
+        print(f'Error sending Discord message: {response.text}')
 
 def main():
-    recent_posts = get_recent_posts(INSTAGRAM_USER_ID)
-    last_post_time = max(post.date_utc for post in recent_posts)
+    image_url = get_random_cat_image_url()
+        send_discord_message(image_url)
+        time.sleep(3600)  # Wait for 3600 seconds (1 hour) before sending the next picture
 
-    while True:
-        time.sleep(60)  # Check for new posts every minute
-        current_recent_posts = get_recent_posts(INSTAGRAM_USER_ID)
-        current_last_post_time = max(post.date_utc for post in current_recent_posts)
-
-        if current_last_post_time > last_post_time:
-            for post in current_recent_posts:
-                if post.date_utc > last_post_time:
-                    send_to_discord(post)
-
-            last_post_time = current_last_post_time
 
 if __name__ == '__main__':
     main()
