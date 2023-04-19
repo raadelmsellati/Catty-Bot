@@ -16,6 +16,7 @@ def send_discord_message(image_url):
             {
                 'title': 'Isn\'t that cute?',
                 'image': {'url': image_url},
+                'color': 0x1da1f2
             }
         ]
     }
