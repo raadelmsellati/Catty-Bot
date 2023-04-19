@@ -62,11 +62,11 @@ def send_discord_message_CS(question, answer):
 def main():
     while True:
         image_url = get_random_cat_image_url()
-        question, answer = get_random_computer_science_trivia()
+        'question, answer = get_random_computer_science_trivia()'
         fact = get_random_cat_fact()
-        'send_discord_message(image_url, fact)'
+        send_discord_message(image_url, fact)
         'send_discord_message_CS(question, answer)'
-        time.sleep(300)  
+        time.sleep(2700)  
 
 if __name__ == '__main__':
     main()
