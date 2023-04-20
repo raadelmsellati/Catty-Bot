@@ -2,7 +2,7 @@ import requests
 import time
 import html
 
-DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1098200267733880896/tQIEm4mHDZ6Q_hNnG7A-ujyRkzbzFq0UmUkqFwqvzMiaahHOierBjeaUJz2iPNS-kwCn'
+DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1098563396670074921/QakMcemamib4sLevr839quWnXE4UxYXenQQDJuTUbf_ZUYW0HlbO60_NhZsx8qolks7u'
 DISCORD_WEBHOOK_URL_CS = 'https://discord.com/api/webhooks/1097698795883610225/NMYBWL8LHiuhhGdw9XRVKNBDj_F7uzSnwPRblIYjoqNDfWGSdQPrgooDKRrs6dwmQEPl'
 TRIVIA_CATEGORY = 18
 
